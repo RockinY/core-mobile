@@ -14,8 +14,9 @@ import {
   Link,
 } from './style';
 import { ViewTitle, ViewSubtitle } from '../UserOnboarding/style';
+import { REACT_APP_SERVER_URL } from '../../constants'
 
-const API_URL = process.env.REACT_APP_SERVER_URL
+const API_URL = REACT_APP_SERVER_URL
 
 type Provider = 'twitter' | 'facebook' | 'google' | 'github';
 
@@ -27,7 +28,6 @@ class Login extends React.Component<Props> {
   authenticate = (provider: Provider) => async () => {
     const redirectUrl = AuthSession.getRedirectUrl();
     const result = await AuthSession.startAsync({
-      // $FlowFixMe
       authUrl: `${API_URL}/auth/${provider}?r=${redirectUrl}&authType=token`,
     });
     if (result.type === 'success') {

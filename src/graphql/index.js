@@ -11,6 +11,7 @@ import { WebSocketLink } from 'apollo-link-ws'
 import { getMainDefinition } from 'apollo-utilities'
 import introspectionQueryResultData from './schema.json'
 import getSharedApolloClientOptions from './apolloClientOptions'
+import { REACT_APP_WS_URI, REACT_APP_API_URI } from '../constants'
 
 // Fixes a bug with ReactNative, see https://github.com/facebook/react-native/issues/9599
 if (typeof global.self === 'undefined') {
@@ -22,7 +23,7 @@ type CreateClientOptions = {
 }
 
 export const wsLink = new WebSocketLink({
-  uri: process.env.REACT_APP_WS_URI,
+  uri: REACT_APP_WS_URI,
   options: {
     reconnect: true,
   }
@@ -59,7 +60,7 @@ export const createClient = (options?: CreateClientOptions = {}) => {
 
   const httpLink = retryLink.concat(
     createUploadLink({
-      uri: process.env.REACT_APP_API_URI,
+      uri: REACT_APP_API_URI,
       credentials: 'include',
       headers
     })

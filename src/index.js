@@ -1,5 +1,4 @@
 // @flow
-import 'dotenv/config'
 import 'string.fromcodepoint';
 import React, { Fragment } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
