@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "expo start",
-    "clear": "rm -rf yarn.lock node_modules && yarn && watchman watch-del-all && rm -fr $TMPDIR/react-*"
+    "clear": "watchman watch-del-all && rm -rf yarn.lock node_modules && yarn && rm -rf /tmp/metro-bundler-cache-* && rm -rf /tmp/haste-map-react-native-packager-*"
   },
   "dependencies": {
     "@expo/react-native-action-sheet": "^1.0.2",
@@ -20,6 +20,7 @@
     "draft-js-linkify-plugin": "^2.0.1",
     "emoji-regex": "^7.0.0",
     "expo": "^28.0.0",
+    "fs": "^0.0.1-security",
     "graphql": "^0.13.2",
     "hoist-non-react-statics": "^3.0.0-rc.1",
     "react": "16.3.1",
