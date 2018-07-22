@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { AuthSession, SecureStore } from 'expo';
 import { authenticate } from '../../actions/authentication';
-import { DEV_BASE_URI } from '../../constants';
 import type { Dispatch } from 'redux';
 import {
   Container,
@@ -16,10 +15,7 @@ import {
 } from './style';
 import { ViewTitle, ViewSubtitle } from '../UserOnboarding/style';
 
-const API_URL =
-  process.env.NODE_ENV === 'production'
-    ? 'https://spectrum.chat'
-    : `http://${DEV_BASE_URI}`;
+const API_URL = process.env.REACT_APP_SERVER_URL
 
 type Provider = 'twitter' | 'facebook' | 'google' | 'github';
 
@@ -31,6 +27,7 @@ class Login extends React.Component<Props> {
   authenticate = (provider: Provider) => async () => {
     const redirectUrl = AuthSession.getRedirectUrl();
     const result = await AuthSession.startAsync({
+      // $FlowFixMe
       authUrl: `${API_URL}/auth/${provider}?r=${redirectUrl}&authType=token`,
     });
     if (result.type === 'success') {
