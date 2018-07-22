@@ -27,6 +27,7 @@
     "react-native-keyboard-spacer": "^0.4.1",
     "react-native-picker-select": "^4.0.0",
     "react-navigation": "^2.8.0",
+    "react-navigation-props-mapper": "^0.3.0",
     "react-redux": "^5.0.7",
     "recompose": "^0.27.1",
     "redraft": "^0.10.1",
