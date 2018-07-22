@@ -2,7 +2,8 @@
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
-    "dev": "expo start"
+    "dev": "expo start",
+    "clear": "rm -rf yarn.lock node_modules && yarn && watchman watch-del-all && rm -fr $TMPDIR/react-*"
   },
   "dependencies": {
     "@expo/react-native-action-sheet": "^1.0.2",
