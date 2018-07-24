@@ -13,7 +13,7 @@ import type { NavigationScreenConfigProps } from 'react-navigation';
 const DMStack = createStackNavigator(
   {
     DirectMessages: {
-      screen: withMappedNavigationProps(DirectMessages),
+      screen: withMappedNavigationProps()(DirectMessages),
       navigationOptions: ({ navigation }) => ({
         headerTitle: navigation.getParam('title', 'Messages'),
         headerRight: (
@@ -28,7 +28,7 @@ const DMStack = createStackNavigator(
       }),
     },
     DirectMessageThread: {
-      screen: withMappedNavigationProps(DirectMessageThread),
+      screen: withMappedNavigationProps()(DirectMessageThread),
       navigationOptions: ({ navigation }) => ({
         headerTitle: navigation.getParam('title', null),
         headerRight: (
@@ -45,7 +45,7 @@ const DMStack = createStackNavigator(
       }),
     },
     DirectMessageThreadDetail: {
-      screen: withMappedNavigationProps(DirectMessageThreadDetail),
+      screen: withMappedNavigationProps()(DirectMessageThreadDetail),
       navigationOptions: ({ navigation }: NavigationScreenConfigProps) => ({
         headerTitle: 'Details',
       }),

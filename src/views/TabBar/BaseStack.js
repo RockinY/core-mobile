@@ -16,13 +16,13 @@ import type { NavigationScreenConfigProps } from 'react-navigation';
 
 const BaseStack = {
   ThreadDetail: {
-    screen: withMappedNavigationProps(ThreadDetail),
+    screen: withMappedNavigationProps()(ThreadDetail),
     navigationOptions: ({ navigation }: NavigationScreenConfigProps) => ({
       headerTitle: 'Details',
     }),
   },
   Thread: {
-    screen: withMappedNavigationProps(Thread),
+    screen: withMappedNavigationProps()(Thread),
     navigationOptions: ({ navigation }: NavigationScreenConfigProps) => ({
       headerTitle: navigation.getParam('title', null),
       headerRight: (
@@ -39,13 +39,13 @@ const BaseStack = {
     }),
   },
   CommunityDetail: {
-    screen: withMappedNavigationProps(CommunityDetail),
+    screen: withMappedNavigationProps()(CommunityDetail),
     navigationOptions: ({ navigation }: NavigationScreenConfigProps) => ({
       headerTitle: 'Details',
     }),
   },
   Community: {
-    screen: withMappedNavigationProps(Community),
+    screen: withMappedNavigationProps()(Community),
     navigationOptions: ({ navigation }: NavigationScreenConfigProps) => ({
       headerTitle: navigation.getParam('title', null),
       headerRight: (
@@ -62,13 +62,13 @@ const BaseStack = {
     }),
   },
   ChannelDetail: {
-    screen: withMappedNavigationProps(ChannelDetail),
+    screen: withMappedNavigationProps()(ChannelDetail),
     navigationOptions: ({ navigation }: NavigationScreenConfigProps) => ({
       headerTitle: 'Details',
     }),
   },
   Channel: {
-    screen: withMappedNavigationProps(Channel),
+    screen: withMappedNavigationProps()(Channel),
     navigationOptions: ({ navigation }: NavigationScreenConfigProps) => ({
       headerTitle: navigation.getParam('title', null),
       headerRight: (
@@ -85,7 +85,7 @@ const BaseStack = {
     }),
   },
   User: {
-    screen: withMappedNavigationProps(User),
+    screen: withMappedNavigationProps()(User),
     navigationOptions: ({ navigation }: NavigationScreenConfigProps) => ({
       headerTitle: navigation.getParam('title', null),
       headerRight: (
@@ -102,7 +102,7 @@ const BaseStack = {
     }),
   },
   UserDetail: {
-    screen: withMappedNavigationProps(UserDetail),
+    screen: withMappedNavigationProps()(UserDetail),
     navigationOptions: ({ navigation }: NavigationScreenConfigProps) => ({
       headerTitle: 'Details',
     }),

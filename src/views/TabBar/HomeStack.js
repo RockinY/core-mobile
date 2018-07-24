@@ -10,7 +10,7 @@ import type { NavigationScreenConfigProps } from 'react-navigation';
 const HomeStack = createStackNavigator(
   {
     Dashboard: {
-      screen: withMappedNavigationProps(Dashboard),
+      screen: withMappedNavigationProps()(Dashboard),
       navigationOptions: ({ navigation }: NavigationScreenConfigProps) => ({
         headerTitle: 'Home',
         headerRight: (

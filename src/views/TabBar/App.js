@@ -32,7 +32,7 @@ const AppStack = createStackNavigator(
       those modals should appear here.
     */
     ThreadComposer: {
-      screen: withMappedNavigationProps(ThreadComposerModal),
+      screen: withMappedNavigationProps()(ThreadComposerModal),
       navigationOptions: ({ navigation }: NavigationScreenConfigProps) => ({
         headerTitle: navigation.getParam('title', 'Compose'),
         headerLeft: () => (
@@ -52,7 +52,7 @@ const AppStack = createStackNavigator(
       }),
     },
     DirectMessageComposer: {
-      screen: withMappedNavigationProps(DirectMessageComposer),
+      screen: withMappedNavigationProps()(DirectMessageComposer),
       navigationOptions: ({ navigation }: NavigationScreenConfigProps) => ({
         headerTitle: navigation.getParam('title', 'New Message'),
         headerLeft: ({ onPress }) => <Button onPress={onPress} title="Close" />,
