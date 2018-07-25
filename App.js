@@ -1,8 +1,7 @@
 // @flow
 import 'string.fromcodepoint';
 import React, { Fragment } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { StatusBar } from 'react-native'
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { SecureStore, AppLoading } from 'expo'
 import { Provider } from 'react-redux'
 import { ApolloProvider, Query } from 'react-apollo'

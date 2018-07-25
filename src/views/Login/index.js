@@ -6,10 +6,7 @@ import { authenticate } from '../../actions/authentication';
 import type { Dispatch } from 'redux';
 import {
   Container,
-  FacebookButton,
   GithubButton,
-  GoogleButton,
-  TwitterButton,
   CodeOfConduct,
   Link,
 } from './style';
@@ -18,7 +15,7 @@ import { REACT_APP_SERVER_URL } from '../../constants'
 
 const API_URL = REACT_APP_SERVER_URL
 
-type Provider = 'twitter' | 'facebook' | 'google' | 'github';
+type Provider = 'github';
 
 type Props = {
   dispatch: Dispatch<Object>,
@@ -37,27 +34,23 @@ class Login extends React.Component<Props> {
     }
     if (result.type === 'error') {
       // Some error happened
-      // TODO(@mxstbr): Error UI
+      // TODO: Error UI
     }
     // User cancelled the login request
-    // TODO(@mxstbr): Cancel UI
+    // TODO: Cancel UI
   };
 
   render() {
     return (
       <Container testID="login">
-        <ViewTitle>Sign in to get started</ViewTitle>
+        <ViewTitle>登陆</ViewTitle>
         <ViewSubtitle>
-          Spectrum is a place where communities can share, discuss, and grow
-          together. Sign in below to join the conversation.
+          云社， 一个自由开放的新一代互联网社区. 
         </ViewSubtitle>
-        <TwitterButton onPress={this.authenticate('twitter')} />
-        <GoogleButton onPress={this.authenticate('google')} />
-        <FacebookButton onPress={this.authenticate('facebook')} />
         <GithubButton onPress={this.authenticate('github')} />
-        <CodeOfConduct>By using Spectrum, you agree to our</CodeOfConduct>
+        <CodeOfConduct>使用云社表示你同意</CodeOfConduct>
         <Link href="https://github.com/withspectrum/code-of-conduct">
-          Code of Conduct
+          使用条款
         </Link>
       </Container>
     );
