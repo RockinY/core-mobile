@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import compose from 'recompose/compose';
 import { View } from 'react-native';
 import ViewNetworkHandler from '../ViewNetworkHandler';
-import { ThreadListItem, LoadingListItem } from '../Lists';
+import { ThreadListItem } from '../Lists';
 import InfiniteList from '../InfiniteList';
 import Loading from '../Loading';
 import type { ThreadConnectionType } from '../../graphql/fragments/community/communityThreadConnection';
@@ -136,8 +136,6 @@ class ThreadFeed extends Component<Props, State> {
         threadConnection.pageInfo.hasNextPage;
       return (
         <View data-cy="thread-feed" style={{ flex: 1 }}>
-          {isRefetching && <LoadingListItem />}
-
           <InfiniteList
             loadingIndicator={<Loading />}
             fetchMore={this.fetchMore}
