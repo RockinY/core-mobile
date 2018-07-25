@@ -12,7 +12,7 @@ const HomeStack = createStackNavigator(
     Dashboard: {
       screen: withMappedNavigationProps()(Dashboard),
       navigationOptions: ({ navigation }: NavigationScreenConfigProps) => ({
-        headerTitle: 'Home',
+        headerTitle: '首页',
         headerRight: (
           <Compose onPress={() => navigation.navigate('ThreadComposer')} />
         ),
