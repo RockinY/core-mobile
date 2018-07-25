@@ -38,11 +38,7 @@ class PillOrMessageCount extends React.Component<Props> {
 
     const defaultMessageCountString = (
       <Subtitle>
-        {messageCount === 0
-          ? `${messageCount} messages`
-          : messageCount > 1
-            ? `${messageCount} messages`
-            : `${messageCount} message`}
+        {`${messageCount}条消息`}
       </Subtitle>
     );
 
@@ -51,7 +47,7 @@ class PillOrMessageCount extends React.Component<Props> {
     }
 
     if (isLocked) {
-      return <MetaTextPill locked>{`Locked`.toUpperCase()}</MetaTextPill>;
+      return <MetaTextPill locked>锁定</MetaTextPill>;
     }
 
     if (!isAuthor && !currentUserLastSeen) {
@@ -59,7 +55,7 @@ class PillOrMessageCount extends React.Component<Props> {
         return defaultMessageCountString;
       }
 
-      return <MetaTextPill new>{`New thread!`.toUpperCase()}</MetaTextPill>;
+      return <MetaTextPill new>新话题</MetaTextPill>;
     }
 
     if (currentUserLastSeen && lastActive && currentUserLastSeen < lastActive) {
@@ -67,7 +63,7 @@ class PillOrMessageCount extends React.Component<Props> {
         return defaultMessageCountString;
       }
 
-      return <Subtitle color={theme => theme.warn.alt}>New messages!</Subtitle>;
+      return <Subtitle color={theme => theme.warn.alt}>新消息!</Subtitle>;
     }
 
     return defaultMessageCountString;

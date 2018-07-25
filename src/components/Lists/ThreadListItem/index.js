@@ -22,6 +22,7 @@ import deleteThreadMutation, {
 import pinThreadMutation from '../../../graphql/mutations/community/pinCommunityThread';
 import triggerDeleteAlert from '../../DeleteAlert';
 import { addToast } from '../../../actions/toasts';
+import { REACT_APP_CLIENT_URL } from '../../../constants'
 
 type Props = {
   thread: GetThreadType,
@@ -42,16 +43,16 @@ type Props = {
   refetch: Function,
 };
 
-const CANCEL = 'Cancel';
-const SHARE = 'Share';
-const MESSAGE_AUTHOR = 'Message author';
-const PIN_CONVERSATION = 'Pin conversation';
-const UNPIN_CONVERSATION = 'Unpin conversation';
-const LOCK_CONVERSATION = 'Lock conversation';
-const UNLOCK_CONVERSATION = 'Unlock conversation';
-const DELETE_CONVERSATION = 'Delete conversation';
-const SUBSCRIBE_CONVERSATION = 'Subscribe to conversation';
-const MUTE_CONVERSATION = 'Mute conversation';
+const CANCEL = '取消';
+const SHARE = '分享';
+const MESSAGE_AUTHOR = '信息作者';
+const PIN_CONVERSATION = '对话置顶';
+const UNPIN_CONVERSATION = '对话取消置顶';
+const LOCK_CONVERSATION = '锁定对话';
+const UNLOCK_CONVERSATION = '取消对话锁定';
+const DELETE_CONVERSATION = '删除对话';
+const SUBSCRIBE_CONVERSATION = '订阅对话';
+const MUTE_CONVERSATION = '对话静音';
 
 class ThreadListItemHandlers extends Component<Props> {
   shouldComponentUpdate(nextProps: Props) {
@@ -68,7 +69,7 @@ class ThreadListItemHandlers extends Component<Props> {
 
     return Share.share(
       {
-        url: `https://spectrum.chat/thread/${thread.id}`,
+        url: `${REACT_APP_CLIENT_URL}/thread/${thread.id}`,
         title: `${thread.content.title}`,
       },
       {
@@ -89,8 +90,8 @@ class ThreadListItemHandlers extends Component<Props> {
           addToast({
             type: 'neutral',
             message: thread.isLocked
-              ? 'Conversation unlocked'
-              : 'Conversation locked',
+              ? '对话已解锁'
+              : '对话已锁住',
             onPressHandler: () =>
               navigation.navigate({
                 routeName: 'Thread',
@@ -107,7 +108,7 @@ class ThreadListItemHandlers extends Component<Props> {
         return dispatch(
           addToast({
             type: 'error',
-            message: 'Unable to lock conversation',
+            message: '对话锁定失败',
             onPressHandler: () =>
               navigation.navigate({
                 routeName: 'Thread',
@@ -246,10 +247,10 @@ class ThreadListItemHandlers extends Component<Props> {
 
     if (action === DELETE_CONVERSATION) {
       return triggerDeleteAlert({
-        title: 'Delete this conversation?',
+        title: '确定删除该对话？',
         subtitle: isAuthor
-          ? 'This can’t be undone.'
-          : 'This can’t be undone. The author will be notified.',
+          ? '该操作无法取消'
+          : '该操作无法取消. 同时消息作者会收到相关通知.',
         deleteHandler: () =>
           deleteThread(thread.id).then(result =>
             this.handlePostThreadDelete(result)
