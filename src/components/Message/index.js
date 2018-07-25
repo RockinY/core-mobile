@@ -46,9 +46,9 @@ class Message extends React.Component<Props, State> {
     showActionSheetWithOptions(
       {
         options: [
-          'Quote',
-          message.reactions.hasReacted ? 'Unlike' : 'Like',
-          'Cancel',
+          '添加为消息注解',
+          message.reactions.hasReacted ? '取消点赞' : '点赞',
+          '取消',
         ],
         cancelButtonIndex: 2,
       },
