@@ -94,4 +94,6 @@ export type GlyphTypes =
   | 'view-reload'
   | 'welcome'
   | 'slack-white'
-  | 'slack-colored';
+  | 'slack-colored'
+  | 'alipay'
+  | 'wechat';
