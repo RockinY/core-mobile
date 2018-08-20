@@ -48,10 +48,6 @@ class Login extends React.Component<Props> {
           云社， 一个自由开放的新一代互联网社区. 
         </ViewSubtitle>
         <GithubButton onPress={this.authenticate('github')} />
-        <CodeOfConduct>使用云社表示你同意</CodeOfConduct>
-        <Link href="https://github.com/withspectrum/code-of-conduct">
-          使用条款
-        </Link>
       </Container>
     );
   }
