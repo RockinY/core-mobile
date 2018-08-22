@@ -9,11 +9,11 @@ export const theme = {
     inactive: '#DFE7EF',
   },
   brand: {
-    default: '#4400CC',
-    alt: '#7B16FF',
+    default: '#36B37E',
+    alt: '#57D9A3',
     wash: '#E8E5FF',
     border: '#DDD9FF',
-    dark: '#2A0080',
+    dark: '#006644',
   },
   generic: {
     default: '#E6ECF7',
@@ -35,6 +35,14 @@ export const theme = {
     github: {
       default: '#16171A',
       alt: '#828C99',
+    },
+    alipay: {
+      default: '#1296db',
+      alt: '#108EE9'
+    },
+    wechat: {
+      default: '#1AAD19',
+      alt: '#2BA245'
     },
     ph: {
       default: '#D85537',
