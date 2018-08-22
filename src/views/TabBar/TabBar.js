@@ -29,7 +29,6 @@ const shouldRenderTabBar = navigation => {
 
   return showTabbar;
 };
-const IS_PROD = process.env.NODE_ENV === 'production';
 
 const routeConfiguration = {
   Home: {
@@ -72,13 +71,13 @@ const routeConfiguration = {
 const tabBarConfiguration = {
   initialRouteName: 'Home',
   tabBarOptions: {
-    activeTintColor: IS_PROD ? theme.brand.alt : theme.text.reverse,
-    inactiveTintColor: IS_PROD ? theme.text.alt : theme.warn.border,
+    activeTintColor: theme.brand.alt,
+    inactiveTintColor: theme.text.alt,
     labelStyle: {
       fontWeight: 'bold',
       marginBottom: 3,
     },
-    style: IS_PROD ? {} : { backgroundColor: theme.warn.alt },
+    style: {},
   },
   navigationOptions: ({ navigation }) => ({
     tabBarVisible: shouldRenderTabBar(navigation),
