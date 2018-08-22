@@ -98,7 +98,7 @@ class InfiniteList extends React.Component<Props> {
         onEndReachedThreshold={threshold}
         ListFooterComponent={hasNextPage ? loadingIndicator : null}
         ItemSeparatorComponent={separator}
-        ListEmptyComponent={emptyState || <Text type="body">Nothing here</Text>}
+        ListEmptyComponent={emptyState || <Text type="body">这里还是空的</Text>}
         removeClippedSubviews={true}
         keyboardShouldPersistTaps={keyboardShouldPersistTaps}
         keyboardDismissMode={'on-drag'}

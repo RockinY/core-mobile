@@ -63,7 +63,6 @@ export const Subtitle = styled.Text`
   font-weight: 500;
   color: ${props =>
     props.color ? props.color(props.theme) : props.theme.text.alt};
-  line-height: 21;
   ${props => props.weight && `font-weight: ${props.weight};`};
 `;
 
