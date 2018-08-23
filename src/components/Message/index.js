@@ -16,6 +16,7 @@ import toggleReaction from '../../graphql/mutations/reaction/toggleReaction';
 import { draftOnlyContainsEmoji } from '../../utils/onlyContainsEmoji';
 import { toState, toPlainText } from '../../utils/draftjs';
 import type { MessageInfoType } from '../../graphql/fragments/message/messageInfo';
+import ImageMessage from './ImageMessage'
 
 type Props = {
   message: MessageInfoType,
@@ -127,16 +128,9 @@ class Message extends React.Component<Props, State> {
         ? redraft(JSON.parse(message.content.body), messageRenderer)
         : message.content.body;
     switch (message.messageType) {
-      // case 'media': {
-      //   // don't apply imgix url params to optimistic image messages
-      //   const src = props.id
-      //     ? message.body
-      //     : `${message.body}?max-w=${window.innerWidth * 0.6}`;
-      //   if (typeof data.id === 'number' && data.id < 0) {
-      //     return null;
-      //   }
-      //   return <Image onClick={openGallery} src={src} />;
-      // }
+      case 'media': {
+        return <ImageMessage src={message.content.body} />
+      }
       case 'text':
       case 'draftjs': {
         return (

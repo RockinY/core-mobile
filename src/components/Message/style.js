@@ -1,6 +1,7 @@
 // @flow
 import styled from 'styled-components/native';
 import { LinearGradient } from 'expo';
+import { ImageWidth } from './ImageMessage'
 
 export const Bubble = styled.View`
   border-radius: 16px;
@@ -39,6 +40,13 @@ export const QuoteWrapper = styled.View`
   overflow: hidden;
   ${props => (props.expanded ? '' : 'max-height: 100px;')};
 `;
+
+export const ImageWrapper = styled.View`
+  width: ${ImageWidth};
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 8px;
+`
 
 export const QuoteGradient = styled(LinearGradient).attrs({
   colors: ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 1)'],
