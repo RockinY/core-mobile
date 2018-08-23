@@ -5,7 +5,11 @@ import redraft from 'redraft';
 import { ThreadAnchor } from '../Anchor';
 import { CodeBlock, InlineCodeBlock } from '../Codeblock';
 import IFrame from '../IFrame';
+import AutoHeightImage from 'react-native-auto-height-image'
 import { BodyText, HeaderOne, HeaderTwo } from './style';
+import { Dimensions } from 'react-native'
+
+const width = Dimensions.get('window').width - 32
 
 const renderer = {
   inline: {
@@ -38,6 +42,9 @@ const renderer = {
     embed: (children, { src }, { key }) => {
       return <IFrame key={`embed-${key}`} src={src} />;
     },
+    IMAGE: (children, { src }, { key }) => {
+      return <AutoHeightImage key={`image-${key}`} width={width} source={{uri: src}} />
+    }
   },
   blocks: {
     fallback: (children, { keys }) => (
